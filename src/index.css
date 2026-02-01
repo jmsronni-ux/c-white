@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+:root {
+  /* Color variables from design */
+  --accent-blue: #2563EB;
+  --accent-blue-hover: #2358D3;
+  --accent-blue-dark: #1D4ED8;
+  --accent-blue-light: #3B82F6;
+  --accent-blue-tint: #EFF6FF;
+  --bg-muted: #F1F5F9;
+  --bg-navy: #0F172A;
+  --bg-navy-light: #1E293B;
+  --bg-primary: #FFFFFF;
+  --bg-surface: #F8FAFC;
+  --border-default: #CBD5E1;
+  --border-light: #E2E8F0;
+  --success: #10B981;
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-tertiary: #94A3B8;
+  --text-white: #FFFFFF;
+  --warning: #F59E0B;
+}
+
+@layer base {
+  html, body {
+    height: 100%;
+  }
+
+  .font-primary {
+    font-family: "Inter", sans-serif;
+  }
+}
+
+/* Marquee animations for Tags */
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-25%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-25%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 25s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 25s linear infinite;
+}
+
+.animate-marquee-right-slow {
+  animation: marquee-right 28s linear infinite;
+}

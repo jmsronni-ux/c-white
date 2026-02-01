@@ -1,5 +1,6 @@
 import './index.css'
-import { HashRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { BookingModalProvider } from './context/BookingModalContext'
 import { ConsultationBookingPopup } from './components/ConsultationBookingPopup'
 import { HomePage } from './components/HomePage'
@@ -14,10 +15,19 @@ import { PrivacyPolicyPage } from './components/PrivacyPolicyPage'
 import { TermsOfServicePage } from './components/TermsOfServicePage'
 import { ScamWarningsPage } from './components/ScamWarningsPage'
 
+function ScrollToTop() {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
 function App() {
   return (
     <BookingModalProvider>
       <HashRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/faq" element={<FAQPage />} />
